@@ -113,7 +113,7 @@ $(document).on("click", ".user-drinkbtn", function(){
     
     var drinkQuery = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkName;
     // var drinkQuery = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007"
-    
+
     $.ajax({
         url: drinkQuery,
         method: "GET"
@@ -180,6 +180,16 @@ $(document).on("click", ".user-drinkbtn", function(){
                 console.log(drinkRes.drinks[0].strMeasure10);
             }   
         }
+        var drinkImg = (drinkRes.drinks[0].strDrinkThumb);
+        var drinkDiv = $("<div>");
+        var thisDrink = $("<img>");
+        thisDrink.attr("style", "width: 50px")
+        thisDrink.attr("src", drinkImg);
+        thisDrink.addClass("drink")
+        
+        drinkDiv.append(thisDrink);
+        
+        $(".footer").prepend(drinkDiv);
     })
 })
 
