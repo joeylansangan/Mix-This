@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mix this</title>
+
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
+
+</head>
+
+<body>
+
+    <!-- <script src="logic.js"> -->
+    <script>
+
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDwn8_nPN3mRDAREJLfpxGEWsArv_zENfE",
+            authDomain: "mix-this.firebaseapp.com",
+            databaseURL: "https://mix-this.firebaseio.com",
+            projectId: "mix-this",
+            storageBucket: "mix-this.appspot.com",
+            messagingSenderId: "909192849898",
+            appId: "1:909192849898:web:3d6e02cc04b967ca"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        var database = firebase.database();
+
+        var connectionsRef = database.ref("/connections");
+        var connectedRef = database.ref(".info/connected");
+
+        connectedRef.on("value", function (snap) {
+
+            if (snap.val()) {
+
+                var con = connectionsRef.push(true);
+                con.onDisconnect().remove();
+            }
+        });
+
+        var connectionsRef = "";
+        var connectedRef = "";
+        var dailyUsers = "";
+        var search = "";
+        var recentSearch = "";
+        var arrToWhat = [];
+
+        connectionsRef.on("value", function (snapshot) {
+
+            $("#viewers").text(snapshot.numChildren());
+        });
+
+        connectionsRef = database.ref("/connected");
+        connectedRef = database.ref(".info/connected");
+        connectedRef.onDisconnect().remove();
+
+        $("#user-submit").on("click", function (userInput) {
+            search = $("#user-search").val().trim().push(arrToWhat);
+            dailyUsers = 
+            recentSearch = arrToWhat.unshift(arrToWhat);
+            // look at unshift function        
+        
+        });
+            var counter = 0;
+
+        // numUsers = counter
+        $("#user-submit").on("click", function(){
+            console.log(counter);
+            counter = counter++;
+            console.log(counter);
+
+        }, function(errorObject) {
+        console.log("The read failed: " + errorObject.code);
+        });
+
+
+
+
+
+
+
+
+        // var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic"
+
+        // restaurant locator api: 29e9beac534197314771c3eb7d923d3b
+
+    </script>
+
+
+
+
+</body>
+
+</html>
