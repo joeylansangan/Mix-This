@@ -82,6 +82,7 @@ $("#add-ingr").on("click", function(event){
 
 
 // on click event for user generated ingredient button
+// this will populate the screen with ALL drinks user can make with chosen ingredient
 $(document).on("click", ".ingrBtn", function(){
     // assign button name
     var ingrName = $(this).attr("data-ingr");
@@ -107,6 +108,8 @@ $(document).on("click", ".ingrBtn", function(){
     })
 })
 
+// on click event for user generated drink button
+// this will populate the screen with drink name, image, instructions, and ingredients 
 $(document).on("click", ".user-drinkbtn", function(){
     console.log(this);
     var drinkName = $(this).attr("data-drinkbtn")
@@ -199,8 +202,6 @@ $(document).on("click", ".user-drinkbtn", function(){
                 drinkDiv.append(drinkRes.drinks[0].strMeasure10);
             }   
         }
-        
-       
         
         $("#result-div").empty();
         $("#result-div").prepend(drinkDiv);
