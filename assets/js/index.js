@@ -94,7 +94,7 @@ $(document).on("click", ".ingrBtn", function(){
         url: ingrQuery,
         method: "GET"
     }).then(function(res){
-    //    console.log(res);
+       console.log(res);
     // console.log(res.drinks[0].strDrink)
 
             for(var k = 0; k < res.drinks.length; k++){
@@ -110,7 +110,7 @@ $(document).on("click", ".ingrBtn", function(){
 $(document).on("click", ".user-drinkbtn", function(){
     console.log(this);
     var drinkName = $(this).attr("data-drinkbtn")
-    
+    console.log("onclick: " + drinkName)
     var drinkQuery = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkName;
     // var drinkQuery = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007"
 
@@ -119,77 +119,91 @@ $(document).on("click", ".user-drinkbtn", function(){
         method: "GET"
     }).then(function(drinkRes){
         console.log(drinkRes.drinks[0]);
-        
+
+   
+        // new div
+        var drinkDiv = $("<div>");
+        var ingredients = [];
+
+        // drink instructions location
+        var drinkInstruct = (drinkRes.drinks[0].strInstructions);
+       
+        // drink image location
+        var drinkImg = (drinkRes.drinks[0].strDrinkThumb);
+ 
+        // image tag for clicked drink
+        var thisDrink = $("<img>");
+        thisDrink.attr("style", "width: 200px")
+        thisDrink.attr("src", drinkImg);
+        thisDrink.addClass("drink")
+         
+        drinkDiv.append(thisDrink, drinkName, drinkInstruct);
+
         if (drinkRes.drinks[0].strIngredient1 !== "" && drinkRes.drinks[0].strIngredient1 !== null) {
-            console.log(drinkRes.drinks[0].strIngredient1)
+            drinkDiv.append(drinkRes.drinks[0].strIngredient1)
             if(drinkRes.drinks[0].strMeasure1 !== "" && drinkRes.drinks[0].strMeasure1 !== " "){
-                console.log(drinkRes.drinks[0].strMeasure1);
+                drinkDiv.append(drinkRes.drinks[0].strMeasure1);
             }   
         }
         if (drinkRes.drinks[0].strIngredient2 !== "" && drinkRes.drinks[0].strIngredient2 !==null) {
-            console.log(drinkRes.drinks[0].strIngredient2)
+            drinkDiv.append(drinkRes.drinks[0].strIngredient2)
             if(drinkRes.drinks[0].strMeasure2 !== "" && drinkRes.drinks[0].strMeasure2 !== " "){
-                console.log(drinkRes.drinks[0].strMeasure2);
+                drinkDiv.append(drinkRes.drinks[0].strMeasure2);
             }  
         }
         if (drinkRes.drinks[0].strIngredient3 !== "" && drinkRes.drinks[0].strIngredient3 !== null) {
-            console.log(drinkRes.drinks[0].strIngredient3)
+            drinkDiv.append(drinkRes.drinks[0].strIngredient3)
             if(drinkRes.drinks[0].strMeasure3 !== "" && drinkRes.drinks[0].strMeasure3 !== " "){
-                console.log(drinkRes.drinks[0].strMeasure3);
+                drinkDiv.append(drinkRes.drinks[0].strMeasure3);
             }  
         }
         if (drinkRes.drinks[0].strIngredient4 !== "" && drinkRes.drinks[0].strIngredient4 !== null) {
-            console.log(drinkRes.drinks[0].strIngredient4)
+            drinkDiv.append(drinkRes.drinks[0].strIngredient4)
             if(drinkRes.drinks[0].strMeasure4 !== "" && drinkRes.drinks[0].strMeasure4 !== " "){
-                console.log(drinkRes.drinks[0].strMeasure4);
+                drinkDiv.append(drinkRes.drinks[0].strMeasure4);
             }
         }
         if (drinkRes.drinks[0].strIngredient5 !== "" && drinkRes.drinks[0].strIngredient5 !== null) {
-            console.log(drinkRes.drinks[0].strIngredient5)
+            drinkDiv.append(drinkRes.drinks[0].strIngredient5)
             if(drinkRes.drinks[0].strMeasure5 !== "" && drinkRes.drinks[0].strMeasure5 !== " "){
-                console.log(drinkRes.drinks[0].strMeasure5);
+                drinkDiv.append(drinkRes.drinks[0].strMeasure5);
             } ;
         }
         if (drinkRes.drinks[0].strIngredient6 !== "" && drinkRes.drinks[0].strIngredient6 !== null) {
-            console.log(drinkRes.drinks[0].strIngredient6)
+            drinkDiv.append(drinkRes.drinks[0].strIngredient6)
             if(drinkRes.drinks[0].strMeasure6 !== "" && drinkRes.drinks[0].strMeasure6 !== " "){
-                console.log(drinkRes.drinks[0].strMeasure6);
+                drinkDiv.append(drinkRes.drinks[0].strMeasure6);
             }   
         }
         if (drinkRes.drinks[0].strIngredient7 !== "" && drinkRes.drinks[0].strIngredient7 !== null) {
-            console.log(drinkRes.drinks[0].strIngredient7)
+            drinkDiv.append(drinkRes.drinks[0].strIngredient7)
             if(drinkRes.drinks[0].strMeasure7 !== "" && drinkRes.drinks[0].strMeasure7 !== " "){
-                console.log(drinkRes.drinks[0].strMeasure7);
+                drinkDiv.append(drinkRes.drinks[0].strMeasure7);
             }   
         }
         if (drinkRes.drinks[0].strIngredient8 !== "" && drinkRes.drinks[0].strIngredient8 !== null) {
-            console.log(drinkRes.drinks[0].strIngredient8)
+            drinkDiv.append(drinkRes.drinks[0].strIngredient8)
             if(drinkRes.drinks[0].strMeasure8 !== "" && drinkRes.drinks[0].strMeasure8 !== " "){
-                console.log(drinkRes.drinks[0].strMeasure8);
+                drinkDiv.append(drinkRes.drinks[0].strMeasure8);
             }   
         }
         if (drinkRes.drinks[0].strIngredient9 !== "" && drinkRes.drinks[0].strIngredient9 !== null) {
-            console.log(drinkRes.drinks[0].strIngredient9)
+            drinkDiv.append(drinkRes.drinks[0].strIngredient9)
             if(drinkRes.drinks[0].strMeasure9 !== "" && drinkRes.drinks[0].strMeasure9 !== " "){
-                console.log(drinkRes.drinks[0].strMeasure9);
+                drinkDiv.append(drinkRes.drinks[0].strMeasure9);
             }   
         }
         if (drinkRes.drinks[0].strIngredient10 !== "" && drinkRes.drinks[0].strIngredient10 !== null) {
-            console.log(drinkRes.drinks[0].strIngredient10)
+            drinkDiv.append(drinkRes.drinks[0].strIngredient10)
             if(drinkRes.drinks[0].strMeasure10 !== "" && drinkRes.drinks[0].strMeasure10 !== " "){
-                console.log(drinkRes.drinks[0].strMeasure10);
+                drinkDiv.append(drinkRes.drinks[0].strMeasure10);
             }   
         }
-        var drinkImg = (drinkRes.drinks[0].strDrinkThumb);
-        var drinkDiv = $("<div>");
-        var thisDrink = $("<img>");
-        thisDrink.attr("style", "width: 50px")
-        thisDrink.attr("src", drinkImg);
-        thisDrink.addClass("drink")
         
-        drinkDiv.append(thisDrink);
+       
         
-        $(".footer").prepend(drinkDiv);
+        $("#result-div").empty();
+        $("#result-div").prepend(drinkDiv);
     })
 })
 
