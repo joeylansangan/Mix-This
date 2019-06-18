@@ -38,13 +38,14 @@
 
         var database = firebase.database();
 
+
         var connectionsRef = database.ref("/connections");
         var connectedRef = database.ref(".info/connected");
+        connectedRef.onDisconnect().remove();
 
         connectedRef.on("value", function (snap) {
 
             if (snap.val()) {
-
                 var con = connectionsRef.push(true);
                 con.onDisconnect().remove();
             }
@@ -52,19 +53,48 @@
 
         var connectionsRef = "";
         var connectedRef = "";
+
+        var recDrinkSearch = "";
+        var recIngSearch = "";
         var dailyUsers = "";
-        var search = "";
-        var recentSearch = "";
-        var arrToWhat = [];
+
+        var drinkSearch = $("#drink-input").val().trim();
+        var ingredientSearch = $("#ingredient-input").val().trim();
+        var zip = $("#zipcode-input").val().trim();
+        
+        
+
+        var input = {
+            drink: drinkSearch,
+            ingredient: ingredientSearch,
+            zipcode: zip,
+
+        }
+        
+        database.ref().push(input);
+        
+        // var arrToWhat = [];
+
+
+        $("#submit-button").on("click", function(event){
+        event.preventDefault();
+
+        var newTrain = $("#train-name-input").val().trim();
+        var newDestination = $("#destination-input").val().trim();
+        var newFrequency = $("#frequency-input").val().trim();
+        var newArrival = $("#arrival-input").val().trim();
+        var newMinutesAway = new Date();
+        // moment().format('hh:mm:ss');
+        console.log(newMinutesAway); 
 
         connectionsRef.on("value", function (snapshot) {
 
             $("#viewers").text(snapshot.numChildren());
         });
 
-        connectionsRef = database.ref("/connected");
-        connectedRef = database.ref(".info/connected");
-        connectedRef.onDisconnect().remove();
+        // connectionsRef = database.ref("/connected");
+        // connectedRef = database.ref(".info/connected");
+        // connectedRef.onDisconnect().remove();
 
         $("#user-submit").on("click", function (userInput) {
             search = $("#user-search").val().trim().push(arrToWhat);
