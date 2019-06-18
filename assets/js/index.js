@@ -63,22 +63,22 @@ function displayBeer(){
         // make new button tag
         var newBeerBtn = $("<button>");
         // assign value of button index as newButton's text
-        newBeerBtn.text(cocktails[i]);
+        newBeerBtn.text(beers[i]);
         // add class for all generated buttons
         newBeerBtn.addClass("beerBtn");
         // add custom attribute for newly generated buttons and set value of the button's index as the custom attribute's value
-        newBeerBtn.attr("data-Beer", cocktails[i]);
+        newBeerBtn.attr("data-Beer", beers[i]);
         // append newly generated buttons to its div
         console.log(newBeerBtn)
         $(".newBeer").append(newBeerBtn);
         // console.log(newButton);
-
     }
 
 }
 
 // add on click event that adds drink buttons to the array
 $("#add-drink").on("click", function(e){
+   
     // prevent form from refreshing
     e.preventDefault();
 
@@ -102,6 +102,21 @@ $("#add-ingr").on("click", function(event){
     // push userButton to array
     ingredients.push(userIngr);
     displayIngr();
+    
+});
+
+// add on click event that adds beer buttons to the array
+$("#add-beer").on("click", function(event){
+    // prevent form from refreshing
+    event.preventDefault();
+
+    // create variable that takes user input value
+    var userBeer = $("#beer-search").val().trim();
+
+    // push userButton to array
+    beers.push(userBeer);
+    console.log(beers);
+    displayBeer();
     
 });
 
