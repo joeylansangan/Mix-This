@@ -2,8 +2,10 @@
 var ingredients = [];
 // empty drink array
 var cocktails = [];
+// empty beer array
+var beers = [];
 
-// renderdrinkbuttons function
+// render drinkbuttons function
 function displayDrink(){
     // clear div before rendering new buttons
     $(".newDrink").empty();
@@ -27,21 +29,7 @@ function displayDrink(){
 
 }
 
-// add on click event that adds drink buttons to the array
-$("#add-drink").on("click", function(e){
-    // prevent form from refreshing
-    e.preventDefault();
-
-    // create variable that takes user input value
-    var userDrink = $("#drink-search").val().trim();
-
-    // push userButton to array
-    cocktails.push(userDrink);
-    displayDrink();
-    
-})
-
-// renderingrbuttons function
+// render ingredientbuttons function
 function displayIngr(){
     // clear div before rendering new buttons
     $(".newIngr").empty();
@@ -65,6 +53,44 @@ function displayIngr(){
 
 }
 
+// render beerbuttons function
+function displayBeer(){
+    // clear div before rendering new buttons
+    $(".newBeer").empty();
+
+    // loop through the new array and generate a button for each index
+    for (var i = 0; i < beers.length; i++){
+        // make new button tag
+        var newBeerBtn = $("<button>");
+        // assign value of button index as newButton's text
+        newBeerBtn.text(cocktails[i]);
+        // add class for all generated buttons
+        newBeerBtn.addClass("beerBtn");
+        // add custom attribute for newly generated buttons and set value of the button's index as the custom attribute's value
+        newBeerBtn.attr("data-Beer", cocktails[i]);
+        // append newly generated buttons to its div
+        console.log(newBeerBtn)
+        $(".newBeer").append(newBeerBtn);
+        // console.log(newButton);
+
+    }
+
+}
+
+// add on click event that adds drink buttons to the array
+$("#add-drink").on("click", function(e){
+    // prevent form from refreshing
+    e.preventDefault();
+
+    // create variable that takes user input value
+    var userDrink = $("#drink-search").val().trim();
+
+    // push userButton to array
+    cocktails.push(userDrink);
+    displayDrink();
+    
+})
+
 // add on click event that adds ingredient buttons to the array
 $("#add-ingr").on("click", function(event){
     // prevent form from refreshing
@@ -77,12 +103,38 @@ $("#add-ingr").on("click", function(event){
     ingredients.push(userIngr);
     displayIngr();
     
-})
+});
 
+// on click event for user generated drink button
+// this will populate the screen with ALL COCKTAILS that has user-input keyword
+// ex: user input = margarita, page will populate with cocktails with the name margarita on it
+$(document).on("click", ".drinkBtn", function(){
+    
+    // assign button name
+    var drinkName = $(this).attr("data-drink");
+    
+    var drinkQuery = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkName;
+  
+    // ajax call
+    $.ajax({
+        url: drinkQuery,
+        method: "GET"
+    }).then(function(res){
+       console.log(res);
+    // console.log(res.drinks[0].strDrink)
 
+            for(var i = 0; i < res.drinks.length; i++){
+            var genCocktail = $("<button>");
+            genCocktail.text(res.drinks[i].strDrink)
+            genCocktail.addClass("user-drinkbtn");
+            genCocktail.attr("data-drinkbtn", res.drinks[i].strDrink)
+            $(".genCocktail").append(genCocktail);
+        }
+    });
+});
 
 // on click event for user generated ingredient button
-// this will populate the screen with ALL drinks user can make with chosen ingredient
+// this will populate the screen with ALL DRINKS user can make with chosen ingredient
 $(document).on("click", ".ingrBtn", function(){
     // assign button name
     var ingrName = $(this).attr("data-ingr");
@@ -105,8 +157,8 @@ $(document).on("click", ".ingrBtn", function(){
             genDrink.attr("data-drinkbtn", res.drinks[k].strDrink)
             $(".genDrink").append(genDrink);
         }
-    })
-})
+    });
+});
 
 // on click event for user generated drink button
 // this will populate the screen with drink name, image, instructions, and ingredients 
@@ -207,4 +259,7 @@ $(document).on("click", ".user-drinkbtn", function(){
         $("#result-div").prepend(drinkDiv);
     })
 })
+
+
+
 
