@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Firebase References -->
+<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class = "navbar">
+            <!-- search by Cocktail name -->
+                <label for="search-drink">Search Cocktails Here:</label>
+                <input id="drink-search" type="text" />
+                
+                <button id="add-drink">Add Drink</button>
+                <div class="newDrink"></div>
+                
+             <!-- search by ingredient--> 
+                <label for="search-ing">Search Ingredient Here:</label>
+                <input id="ing-search" type="text" />
+               
+                <button id="add-ingr">Add Ingredient</button>
+                <div class="newIngr"></div>
+                
+                
+        </div>
+
+        <div class = "button-div">
+            <div class="drinksHere">
+                    <div class="genDrink"></div>
+            </div>
+            <div class="cocktailHere">
+                    <div class="genCocktail"></div>
+            </div>
+        </div>
+        <div id="result-div">
+            
+        </div>
+
+        <div class = "footer">
+
+        </div>
+
+    </div>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./dummy.js"></script>
+</body>
+</html>
