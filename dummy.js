@@ -15,6 +15,21 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 
+var connectionsRef = database.ref("/connections");
+var connectedRef = database.ref(".info/connected");
+
+connectedRef.on("value", function(snapshot) {
+  if(snapshot.val()){
+    var connections = connectionsRef.push(true);
+    connections.onDisconnect().remove();
+  }
+});
+// Number of online users is the number of objects in the presence list.
+
+connectionsRef.on("value", function (snapshot) {
+    $("#connected-viewers").text(snapshot.numChildren());
+});
+
 
 // ////
 //ajax section
