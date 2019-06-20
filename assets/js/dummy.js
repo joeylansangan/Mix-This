@@ -193,68 +193,68 @@ $(document).on("click", ".user-drinkbtn", function(){
         // append to their respective divs
         $(".imgDiv").html(thisDrink);
         $(".nameDiv").text("Name: " + drinkName);
-        $(".instructDiv").html(drinkInstruct);
+        $(".instructDiv").text("Instructions: " + drinkInstruct);
         // instructDiv.append(drinkInstruct);
         
 
         if (drinkRes.drinks[0].strIngredient1 !== "" && drinkRes.drinks[0].strIngredient1 !== null) {
-            $(".ingredientsDiv").html(drinkRes.drinks[0].strIngredient1)
+            $(".ingredientsDiv").text("Ingredients : " + drinkRes.drinks[0].strIngredient1)
             if(drinkRes.drinks[0].strMeasure1 !== "" && drinkRes.drinks[0].strMeasure1 !== " "){
-                $(".portionsDiv").html(drinkRes.drinks[0].strMeasure1);
+                $(".portionsDiv").text(drinkRes.drinks[0].strMeasure1);
             }   
         }
         if (drinkRes.drinks[0].strIngredient2 !== "" && drinkRes.drinks[0].strIngredient2 !==null) {
-            $(".ingredientsDiv").html(drinkRes.drinks[0].strIngredient2)
+            $(".ingredientsDiv").text("Ingredients : " + drinkRes.drinks[0].strIngredient2)
             if(drinkRes.drinks[0].strMeasure2 !== "" && drinkRes.drinks[0].strMeasure2 !== " "){
-                $(".portionsDiv").html(drinkRes.drinks[0].strMeasure2);
+                $(".portionsDiv").text(drinkRes.drinks[0].strMeasure2);
             }  
         }
         if (drinkRes.drinks[0].strIngredient3 !== "" && drinkRes.drinks[0].strIngredient3 !== null) {
-            $(".ingredientsDiv").html(drinkRes.drinks[0].strIngredient3)
+            $(".ingredientsDiv").text("Ingredients : " + drinkRes.drinks[0].strIngredient3)
             if(drinkRes.drinks[0].strMeasure3 !== "" && drinkRes.drinks[0].strMeasure3 !== " "){
-                $(".portionsDiv").html(drinkRes.drinks[0].strMeasure3);
+                $(".portionsDiv").text(drinkRes.drinks[0].strMeasure3);
             }  
         }
         if (drinkRes.drinks[0].strIngredient4 !== "" && drinkRes.drinks[0].strIngredient4 !== null) {
-            $(".ingredientsDiv").html(drinkRes.drinks[0].strIngredient4)
+            $(".ingredientsDiv").text("Ingredients : " + drinkRes.drinks[0].strIngredient4)
             if(drinkRes.drinks[0].strMeasure4 !== "" && drinkRes.drinks[0].strMeasure4 !== " "){
-                $(".portionsDiv").html(drinkRes.drinks[0].strMeasure4);
+                $(".portionsDiv").text(drinkRes.drinks[0].strMeasure4);
             }
         }
         if (drinkRes.drinks[0].strIngredient5 !== "" && drinkRes.drinks[0].strIngredient5 !== null) {
-            $(".ingredientsDiv").html(drinkRes.drinks[0].strIngredient5)
+            $(".ingredientsDiv").text("Ingredients : " + drinkRes.drinks[0].strIngredient5)
             if(drinkRes.drinks[0].strMeasure5 !== "" && drinkRes.drinks[0].strMeasure5 !== " "){
-                $(".portionsDiv").html(drinkRes.drinks[0].strMeasure5);
+                $(".portionsDiv").text(drinkRes.drinks[0].strMeasure5);
             } ;
         }
         if (drinkRes.drinks[0].strIngredient6 !== "" && drinkRes.drinks[0].strIngredient6 !== null) {
-            $(".ingredientsDiv").html(drinkRes.drinks[0].strIngredient6)
+            $(".ingredientsDiv").text("Ingredients : " + drinkRes.drinks[0].strIngredient6)
             if(drinkRes.drinks[0].strMeasure6 !== "" && drinkRes.drinks[0].strMeasure6 !== " "){
-                $(".portionsDiv").html(drinkRes.drinks[0].strMeasure6);
+                $(".portionsDiv").text(drinkRes.drinks[0].strMeasure6);
             }   
         }
         if (drinkRes.drinks[0].strIngredient7 !== "" && drinkRes.drinks[0].strIngredient7 !== null) {
-            $(".ingredientsDiv").html(drinkRes.drinks[0].strIngredient7)
+            $(".ingredientsDiv").text("Ingredients : " + drinkRes.drinks[0].strIngredient7)
             if(drinkRes.drinks[0].strMeasure7 !== "" && drinkRes.drinks[0].strMeasure7 !== " "){
-                $(".portionsDiv").html(drinkRes.drinks[0].strMeasure7);
+                $(".portionsDiv").text(drinkRes.drinks[0].strMeasure7);
             }   
         }
         if (drinkRes.drinks[0].strIngredient8 !== "" && drinkRes.drinks[0].strIngredient8 !== null) {
-            $(".ingredientsDiv").html(drinkRes.drinks[0].strIngredient8)
+            $(".ingredientsDiv").text("Ingredients : " + drinkRes.drinks[0].strIngredient8)
             if(drinkRes.drinks[0].strMeasure8 !== "" && drinkRes.drinks[0].strMeasure8 !== " "){
-                $(".portionsDiv").html(drinkRes.drinks[0].strMeasure8);
+                $(".portionsDiv").text(drinkRes.drinks[0].strMeasure8);
             }   
         }
         if (drinkRes.drinks[0].strIngredient9 !== "" && drinkRes.drinks[0].strIngredient9 !== null) {
-            $(".ingredientsDiv").html(drinkRes.drinks[0].strIngredient9)
+            $(".ingredientsDiv").text("Ingredients : " + drinkRes.drinks[0].strIngredient9)
             if(drinkRes.drinks[0].strMeasure9 !== "" && drinkRes.drinks[0].strMeasure9 !== " "){
-                $(".portionsDiv").html(drinkRes.drinks[0].strMeasure9);
+                $(".portionsDiv").text(drinkRes.drinks[0].strMeasure9);
             }   
         }
         if (drinkRes.drinks[0].strIngredient10 !== "" && drinkRes.drinks[0].strIngredient10 !== null) {
-            $(".ingredientsDiv").html(drinkRes.drinks[0].strIngredient10)
+            $(".ingredientsDiv").text("Ingredients : " + drinkRes.drinks[0].strIngredient10)
             if(drinkRes.drinks[0].strMeasure10 !== "" && drinkRes.drinks[0].strMeasure10 !== " "){
-                $(".portionsDiv").html(drinkRes.drinks[0].strMeasure10);
+                $(".portionsDiv").text(drinkRes.drinks[0].strMeasure10);
             }   
         }
         
