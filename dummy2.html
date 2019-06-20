@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
  <!-- Firebase References -->
  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
     <link rel="stylesheet" type="text/css" href="./assets/css/style2.css">
     <!-- FIND IMAGE FOR ICON -->
     <link rel="icon" type="image" href="./assets/images/tipsy_icon.jpg">
@@ -14,6 +16,7 @@
     <title>Project1</title>
 </head>
 <body>
+
     <header class="header">
         <!-- <a>
             <img
@@ -47,15 +50,19 @@
             <h1> Welcome to Tipsy!
         </div> -->
     </header> 
+
     <p>  ( Adult Beverage Database! ) </p>
     <p> Simply type a type of alcohol and click 'search'.  </p>
     <p> Feeling a certian ingredient? Search for flavors in the ingredients bar!</p>
+
     <div class="container">
+
             <div class = "liquorSearch">
             <!-- search by Liquor name -->
                 <label for="search-drink">Liquor:</label>
                 <input id="drink-search" type="text" />
-                <button id="add-drink">Search</button>
+
+                <button id="add-drink">Default</button>
                 <div class="newDrink"></div>
             </div>
                 
@@ -64,11 +71,12 @@
                 <label for="search-ingr">Ingredient:</label>
                 <input id="ing-search" type="text" />
                
-                <button id="add-ing">Search</button>
+                <button id="add-ing">Default</button>
                 <div class="newIng"></div>
             </div>
             
             <br></br>
+
             <div class="button-div">
                 <div class="cocktailHere">
                         <div class="genCocktail"></div>
@@ -77,14 +85,9 @@
                 <div class="drinksHere">
                         <div class="genDrink"></div>
                 </div>
-                <div class="drinkBasket">
-                        <div class="genDrinkBasket"></div>
-                </div>
-                <div class="ingredientBasket">
-                        <div class="genIngredientBasket"></div>
-                </div>
                 
             </div>
+
         <div id="result-div"> 
             <div class="imgDiv">
                 
@@ -110,8 +113,11 @@
                 var portionsDiv = $("<div>"); -->
         </div>
     </div>
+
         <div class = "footer"> </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="./assets/js/dummy.js"></script>
+
 </body>
 </html>
