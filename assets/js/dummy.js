@@ -68,7 +68,7 @@ $("#add-drink").on("click", function(e){
     drinkBasket.push(userDrink);
     
     var recentDrink = {
-        drinkRecent: userDrink,
+        drinkSearch: userDrink,
     };
     var arrayDrink = {
         drinkSearch: userDrink,
@@ -115,16 +115,16 @@ $("#add-ing").on("click", function(event){
     ingredients.push(userIngr);
     ingredientBasket.push(userIngr);
     // create object that will hold ingredient data for firebase
-    var newIngr = {
+    var recentIngr = {
         ingredientSearch: userIngr,
     };
     var arrayIngr = {
         ingrSearch: userIngr,
     }
     
-    database.ref("/recentIngr").set(newIngr);
+    database.ref("/recentIngr").set(recentIngr);
     database.ref("/userIngrSearch").push(arrayIngr);
-    console.log("fb object: " + newIngr);
+    // console.log("fb object: " + recentIngr);
     $("#ing-search").val("");
     
     // ajax call when press search  
@@ -150,7 +150,7 @@ $("#add-ing").on("click", function(event){
     });
     renderIngredientBasket();
     console.log("User Ingredients: " + ingredients);
-    console.log("User Ingredient Basket: " + basket);
+    console.log("User Ingredient Basket: " + ingredientBasket);
 });
 
 // on click event for user generated drink button
@@ -269,10 +269,72 @@ $(document).on("click", ".user-drinkbtn", function(){
 /////
 ///firebase listeners
 ////
-database.ref("/recentDrink").on("child_added", function(drinkSnap){
-    console.log("firebase drink: " + drinkSnap.val());
+database.ref().on("child_changed", function(drinkSnap){
+    $(".genRecentDrink").empty();
+    var recentDrink = drinkSnap.val().drinkSearch;
+    if(recentDrink === "undefined" || recentDrink == null){
+        console.log("no change");
+    }
+    else{
+        console.log("firebase recent drink: " + recentDrink);
+
+        var genRecentDrink = $("<button>");
+            genRecentDrink.text(recentDrink)
+            genRecentDrink.addClass("user-drinkbtn");
+            genRecentDrink.attr("data-drinkbtn", recentDrink)
+            $(".genRecentDrink").append(genRecentDrink);
+            console.log("firebase button recent drink: " + recentDrink);    
+    }
+   
+
 })
 
-database.ref("/recentIngr").on("child_added", function(ingrSnap){
-    console.log("firebase ingr: " + ingrSnap.val());
+database.ref().on("child_changed", function(ingrSnap){
+    $(".genRecentIngredient").empty();
+    var recentIngr = ingrSnap.val().ingredientSearch;
+    
+    if(recentIngr === "undefined" || recentIngr == null){
+        console.log("no change");
+    }
+    else{
+        console.log("firebase recent ingredient: " + recentIngr);
+    }
 })
+
+$( document ).ready(function(recentDrink) {
+    $(".genRecentDrink").empty();
+    var recentDrink = drinkSnap.val().drinkSearch;
+    if(recentDrink === "undefined" || recentDrink == null){
+        console.log("no change");
+    }
+    else{
+        console.log("firebase recent drink: " + recentDrink);
+
+        var genRecentDrink = $("<button>");
+            genRecentDrink.text(recentDrink)
+            genRecentDrink.addClass("user-drinkbtn");
+            genRecentDrink.attr("data-drinkbtn", recentDrink)
+            $(".genRecentDrink").append(genRecentDrink);
+            console.log("firebase button recent drink: " + recentDrink);    
+    }
+});
+$( document ).ready(function(recentDrink) {
+    $(".genRecentIngredient").empty();
+    var recentIngr = ingrSnap.val().ingredientSearch;
+    
+    if(recentIngr === "undefined" || recentIngr == null){
+        console.log("no change");
+    }
+    else{
+        console.log("firebase recent ingredient: " + recentIngr);
+    }
+});
+// database.ref().on("child_added", function(trainSnap){
+//     // check snapshot value from firebase database
+//     console.log("listener trainSnap", trainSnap.val());
+
+//     // store data from firebase into a new variable
+//     var trainName = trainSnap.val().train;
+//     var dest = trainSnap.val().destination;
+//     var firstTrain = trainSnap.val().starts;
+//     var freq = trainSnap.val().frequency;

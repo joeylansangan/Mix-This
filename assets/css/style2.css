@@ -7,11 +7,13 @@ a{
     filter: drop-shadow(5px 5px 2px black);
 }
 body{
-    /* background-image: url(''); */
-    background-color:rgb(0, 0, 0);
+    background: darkslategray;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /* background-color:rgb(0, 0, 0); */
     margin:0; padding:0;
     overflow-x:hidden;
-    height:100%;
+    min-height:100vh    ;
     font-family: 'Lato', Helvetica, arial, sans-serif;
     font-weight: 300;
     font-size: 20px;
@@ -139,6 +141,70 @@ p {
     margin-top: 1%;
     text-align: center;
     background-color: rgb(95, 95, 95);
+}
+.genDrinkBasket{
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 1%;
+    border-left: 10px solid rgb(110, 110, 110);
+    border-right: 10px solid rgb(110, 110, 110);
+    border-bottom: 10px solid rgb(80, 80, 80);
+    border-top: 10px solid rgb(80, 80, 80);
+   background-color: rgb(95, 95, 95);
+}
+.user-drinkbasket{
+    font-size: 12px;
+    font-style: bolder;
+    color:whitesmoke;
+    background-color: rgb(83, 14, 148);
+    border-color:rgb(33, 5, 59);
+    filter: brightness(150%);
+    margin-bottom: 2%;
+    word-spacing: 5%;
+}
+.genIngredientBasket{
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 1%;
+    border-left: 10px solid rgb(110, 110, 110);
+    border-right: 10px solid rgb(110, 110, 110);
+    border-bottom: 10px solid rgb(80, 80, 80);
+    border-top: 10px solid rgb(80, 80, 80);
+   background-color: rgb(95, 95, 95);
+}
+.user-ingredientbasket{
+    font-size: 12px;
+    font-style: bolder;
+    color:whitesmoke;
+    background-color: rgb(83, 14, 148);
+    border-color:rgb(33, 5, 59);
+    filter: brightness(150%);
+    margin-bottom: 2%;
+    word-spacing: 5%;
+}
+.genRecentDrink{
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 1%;
+    border-left: 10px solid rgb(110, 110, 110);
+    border-right: 10px solid rgb(110, 110, 110);
+    border-bottom: 10px solid rgb(80, 80, 80);
+    border-top: 10px solid rgb(80, 80, 80);
+   background-color: rgb(95, 95, 95);
+}
+.genRecentIngredient{
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 1%;
+    border-left: 10px solid rgb(110, 110, 110);
+    border-right: 10px solid rgb(110, 110, 110);
+    border-bottom: 10px solid rgb(80, 80, 80);
+    border-top: 10px solid rgb(80, 80, 80);
+   background-color: rgb(95, 95, 95);
 }
 .button-div{
     margin-top: 25px;
